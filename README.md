@@ -6,9 +6,9 @@ A clean, accessible, and responsive counter widget built with plain HTML, CSS, a
 
 ## Live Demo
 
-Hosted on Vercel: https://counter-widget-8h6klq5o1-moyos-projects-61719112.vercel.app
+Hosted on Vercel: https://counter-widget-psi.vercel.app
 
-Alternatively aliased to: https://counter-widget-psi.vercel.app
+> Note: The project-scoped production URL may require Vercel login. The alias above is the public-friendly link.
 
 ## Features
 
