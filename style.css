@@ -58,6 +58,7 @@ html {
   font-size: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-width: 0;
 }
 
 body {
@@ -65,6 +66,7 @@ body {
   background-color: var(--color-bg);
   color: var(--color-text-primary);
   min-height: 100vh;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -193,6 +195,8 @@ body {
 .site-footer p {
   overflow-wrap: break-word;
   word-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
 }
 
 .site-footer strong {
@@ -202,6 +206,34 @@ body {
 /* ============================================================
    RESPONSIVE DESIGN
    ============================================================ */
+@media (max-width: 360px) {
+  body {
+    padding: var(--space-xs);
+  }
+
+  .counter-card {
+    padding: 24px var(--space-sm);
+  }
+
+  .counter-title {
+    font-size: 1.25rem;
+  }
+
+  .counter-value {
+    font-size: 3.5rem;
+  }
+
+  .btn {
+    padding: 12px;
+    font-size: 0.95rem;
+  }
+
+  .site-footer {
+    font-size: 0.75rem;
+    padding: var(--space-sm);
+  }
+}
+
 @media (max-width: 400px) {
   .counter-card {
     padding: 32px 24px;
