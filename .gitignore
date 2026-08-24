@@ -1,5 +1,7 @@
-# Vercel local build output
+# Vercel local build output and environment files
 .vercel
+.env.local
+.env.*.local
 
 # Editor / IDE files
 .vscode/
