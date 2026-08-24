@@ -1,0 +1,247 @@
+/* ============================================================
+   COUNTER WIDGET — STYLE GUIDE
+   ------------------------------------------------------------
+   Author: Moyosore Ogunde
+   Project: Counter Widget (Interview Assessment)
+   Description: Clean, accessible, responsive counter UI
+   ============================================================ */
+
+/* ============================================================
+   CSS CUSTOM PROPERTIES (Design Tokens)
+   ============================================================ */
+:root {
+  /* Color palette */
+  --color-bg: #f4f6f8;
+  --color-surface: #ffffff;
+  --color-text-primary: #1f2937;
+  --color-text-secondary: #6b7280;
+  --color-accent: #4f46e5;
+  --color-accent-hover: #4338ca;
+  --color-danger: #ef4444;
+  --color-danger-hover: #dc2626;
+  --color-focus-ring: #818cf8;
+
+  /* Spacing scale */
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 28px;
+  --space-xl: 40px;
+
+  /* Border radius */
+  --radius-md: 12px;
+  --radius-lg: 16px;
+
+  /* Shadow */
+  --shadow-card: 0 10px 25px rgba(0, 0, 0, 0.1);
+
+  /* Typography */
+  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-size-title: 1.5rem;
+  --font-size-value: 5rem;
+  --font-size-btn: 1.1rem;
+  --font-size-footer: 0.9rem;
+}
+
+/* ============================================================
+   RESET & BASE STYLES
+   ============================================================ */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-md);
+  line-height: 1.5;
+}
+
+/* ============================================================
+   LAYOUT: MAIN CONTENT
+   ============================================================ */
+.counter-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex: 1;
+}
+
+.counter-card {
+  background-color: var(--color-surface);
+  padding: var(--space-xl) 48px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  text-align: center;
+  width: 100%;
+  max-width: 360px;
+}
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+.counter-title {
+  font-size: var(--font-size-title);
+  font-weight: 700;
+  margin-bottom: var(--space-lg);
+  letter-spacing: 0.5px;
+}
+
+.counter-value {
+  font-size: var(--font-size-value);
+  font-weight: 800;
+  margin-bottom: var(--space-lg);
+  color: var(--color-accent);
+  line-height: 1;
+  transition: transform 0.15s ease, color 0.2s ease;
+}
+
+/* Animation class for value changes */
+.counter-value.bump {
+  transform: scale(1.1);
+}
+
+/* ============================================================
+   CONTROLS & BUTTONS
+   ============================================================ */
+.counter-controls {
+  display: flex;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+
+.btn {
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  font-size: var(--font-size-btn);
+  font-weight: 600;
+  cursor: pointer;
+  color: #ffffff;
+  flex: 1;
+  transition: transform 0.1s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Focus state for accessibility */
+.btn:focus-visible {
+  outline: 3px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+
+.btn:active {
+  transform: scale(0.96);
+}
+
+/* Increment / Decrement buttons */
+.btn-increment,
+.btn-decrement {
+  background-color: var(--color-accent);
+}
+
+.btn-increment:hover,
+.btn-decrement:hover {
+  background-color: var(--color-accent-hover);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+}
+
+/* Reset button */
+.btn-reset {
+  background-color: var(--color-danger);
+  width: 100%;
+}
+
+.btn-reset:hover {
+  background-color: var(--color-danger-hover);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-footer {
+  margin-top: var(--space-lg);
+  padding: var(--space-md);
+  text-align: center;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-footer);
+}
+
+.site-footer strong {
+  color: var(--color-text-primary);
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN
+   ============================================================ */
+@media (max-width: 400px) {
+  .counter-card {
+    padding: 32px 24px;
+  }
+
+  .counter-value {
+    font-size: 4rem;
+  }
+
+  .btn {
+    padding: 12px 14px;
+    font-size: 1rem;
+  }
+
+  .site-footer {
+    font-size: 0.8rem;
+  }
+}
+
+/* ============================================================
+   ACCESSIBILITY ENHANCEMENTS
+   ============================================================ */
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .counter-value.bump {
+    transform: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .counter-value {
+    color: #0000ff;
+  }
+
+  .btn-increment,
+  .btn-decrement {
+    background-color: #0000cc;
+  }
+
+  .btn-reset {
+    background-color: #cc0000;
+  }
+}
